@@ -1,0 +1,32 @@
+
+<div class="container" *ngIf="listPlaces">
+  <!--<div class="panel panel-primary">-->
+    <div class="panel-heading"></div>
+      <div class="row">
+        <div class="col-sm-4">
+          <table>
+            <tr *ngFor="let p of listPlaces._embedded.places">
+              <th>
+                <a (click)="onGetListDaysAndHoursByPlace(p)">{{p.name}}</a> <br/>
+                <span>{{p.address}}</span>
+                <p></p>
+              </th>
+            </tr>
+          </table>
+        </div>
+        <div class="col-sm-8">
+          <table *ngIf="listOpenDays" class="table">
+            <tr>
+              <th>Opening Hours</th><th></th><th></th>
+            </tr>
+            <tr *ngFor="let dh of listOpenDays._embedded.openDayses">
+              <td>{{dh.dayOfWeek}}</td>
+              <td></td>
+              <td>{{dh.openingHoursMorning}}<br/>{{dh.openingHoursEvening}}</td>
+            </tr>
+         </table>
+        </div>
+      </div>
+    <!--</div>-->
+</div>
+
